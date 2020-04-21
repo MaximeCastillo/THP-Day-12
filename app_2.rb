@@ -12,7 +12,6 @@ puts "      -------------------------------------------------"
 puts "Pour commencer, indiquez votre prénom :"
 print "> "
 user = HumanPlayer.new(gets.chomp)
-#user = HumanPlayer.new("The Punisher") #temporaire pour faciliter les tests
 
 player1 = Player.new("Pathfinder")
 player2 = Player.new("Wraith")

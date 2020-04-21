@@ -18,9 +18,9 @@ while my_game.is_still_ongoing?
   print "> "
   my_game.menu_choice(gets.chomp)
   puts "--------------------------"
-  sleep 3
+  sleep 1
   my_game.ennemies_attack
-  sleep 3
+  sleep 1
 end
-sleep 2
+sleep 0.5
 my_game.end

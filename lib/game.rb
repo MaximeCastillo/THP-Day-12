@@ -39,17 +39,15 @@ class Game
     puts "s - Chercher à se soigner"
     puts
     puts "Attaquer un joueur en vue :"
-    puts "0 - #{@enemies[0].name}"
-    puts "1 - #{@enemies[1].name}"
-    puts "2 - #{@enemies[2].name}"
-    puts "3 - #{@enemies[3].name}"
+    i = 0
+    @enemies.each do |player|
+      puts "#{i} - #{player.name}"
+      i += 1
+    end
     puts
   end
 
   def menu_choice (input)
-    @enemies.each do |player|
-      kill_player(player.name) if player.life_points <= 0
-    end
     case input
     when "a"
       @user.search_weapon
@@ -64,14 +62,21 @@ class Game
     when "3"
       @user.attacks(@enemies[3])
     end
+    @enemies.each do |player|
+      kill_player(player.name) if player.life_points <= 0
+    end
   end
 
   def ennemies_attack
-    puts "Les autres joueurs t'attaquent !"
-    puts
-    @enemies.each do |player|
-      if player.life_points > 0
-        player.attacks(@user)
+    if is_still_ongoing?
+      puts "Les autres joueurs t'attaquent !"
+      puts
+      sleep 1
+      @enemies.each do |player|
+        if player.life_points > 0
+          sleep 0.5
+          player.attacks(@user)
+        end
       end
     end
   end
