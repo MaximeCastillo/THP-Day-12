@@ -20,7 +20,7 @@ enemies = [player1, player2]
 
 while user.life_points > 0 && (player1.life_points > 0 || player2.life_points > 0)
   puts "--------------------------------------------------"
-  user.show_state
+  puts user.show_state
   puts
   puts "Quelle action veux-tu effectuer ?"
   puts "a - Chercher une meilleure arme"
